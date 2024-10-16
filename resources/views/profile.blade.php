@@ -14,211 +14,270 @@
         body {
             font-family: algerian, serif;
             font-size: 16px;
-            background: #E8EFF8;
+            background: #326fc9;
         }
-        header {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            background-color: #ffffff;
-            padding: 20px 10px;
+        .icon-bar {
+            width: 90px;
+            height: 295px;
+            background-color: #2661b8;
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2), /* Верхняя тень */
+                       inset 5px 0 10px rgba(0, 0, 0, 0.2); /* Левая тень */
+
         }
-        header a {
-            color: #212121;
-            padding: 12px;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 4px;
-        }
-        nav, .wrap-logo {
-            display: flex;
-            align-items: center;
-        }
-        .form_search {
-            position: relative;
-            width: 500px;
-            margin: 0 auto;
-        }
-        input, button, select {
-            border: 1px solid #BDCDDD;
-            background-color: #ffffff;
-        }
-         .search {
-            border-radius: 15px;
-            margin-top: 28px;
-            margin-left: 45px;
-            width: 100%;
-            height: 30px;
-            padding-left: 15px;
-        }
-        .but_search {
-            height: 26px;
-            width: 26px;
-            position: absolute;
-            top: 30px;
-            right: -43px;
-            border-radius: 15px;
-            background: #BDCDDD;
-            cursor: pointer;
-            content: "!";
-        }
-        .but_search:before {
-            color: #BDCDDD;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .input {
-            width: 95%;
-            height: 95%;
-        }
-        img{
-            width: 265px;
-            height: 265px;
-            border-radius: 15px;
-            position: relative;
-            left:430px;
-            top:30px;
-            object-fit: cover;
-        }
-         .img_log{
-            width: 250px;
-            height: 80px;
-            position: relative;
-            top:-4px;
-            left: 0px;
-        }
-        .btn {
+
+        .icon-bar a {
             display: block;
-            width: 73%;
-            padding: 8px;
-            margin: 30px 115px 50px;
-            border-radius: 15px;
-            background-color: #F7F0C6;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            border: 0;
-            font-family: algerian, serif;
-            font-size: 16px;
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 15px;
-            margin: 10% 10%;
-            padding-bottom: 2%;
-        }
-        .headline{
-            font-size: 22px;
-        }
-        .td_text{
-            position: relative;
             text-align: center;
-            left:73%;
-            margin-bottom: 10px;
-            padding-left: 30px;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 36px;
         }
-        .img_like,.btn_like{
-            width: 24px;
-            height: 24px;
-            border: none;
-            background-color: transparent;
-            cursor: pointer;
-            position: relative;
-            right: -650px;
-            top:-122px
+
+        .icon-bar a:hover {
+            background-color: #000;
         }
-        .img_like, .img_header:hover {
-            background-color: #BDCDDD;
+
+        .active {
+            background-color: #eeeeee !important;
         }
-        a{
-            padding-left: 0%;
-            text-decoration: none;
-            color: black;
-            border-bottom: 1px solid; 
+
+        .container {
+            display: flex;
         }
-        td{
-            width: 150px;
+
+        .item {
+        flex: 1;
+        margin: 0px;
+        text-align: center;
+        padding: 20px;
         }
         .name{
-            position: relative;
-            text-align: center;
-            left:74%;
+            font-size: 36px;
+            color: #eeeeee;
         }
-         .img_header{
-            width: 30px;
-            height: 30px;
-            border: none;
-            background-color: transparent;
-            cursor: pointer;
-            border-radius: 0px;
+        .photo{
+            width: 150px; 
+            height: 150px; 
+            background-color: #eeeeee; 
+            border-radius: 50%; 
+            margin-left: 44%;
+            margin-top:30px;
         }
-        .img_header:hover {
-            background-color: #BDCDDD;
-            border-radius: 15px;
-        }
-        nav{
-              position: relative;
-            left:-430px;
-            top:-30px;
-        }
-        .entr{
-          position: relative;
-            left:995px;
-            top:25px;
-            margin-bottom: 20px;
-        }
+        .input {
+                font-size: 25px;
+                width: 400px;
+                height: 25px;
+                margin-bottom: 20px;
+                border-radius: 15px;
+                background-color: #eeeeee;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                border: 1px solid #ccc;
+                margin-left: 34.5%;
+                font-size: 16px;
+                text-align:left;
+                padding-left: 10px;
+                padding-top: 2px;
+            }
+            .dropbtn {
+                background-color: black;
+                color: #eeeeee;
+                width: 400px;
+                height: 25px;
+                margin-bottom: 20px;
+                border-radius: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                border: 0;
+                font-size: 15px;
+                text-align:left;
+                padding-left: 10px;
+                padding-top: 2px;
+                cursor: pointer;
+            }
+
+            .dropbtn:hover, .dropbtn:focus {
+                background-color: #eeeeee;
+                color:black;
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #2661b8;
+                width: 400px;
+                min-height: 50px;
+                overflow: auto;
+                box-shadow: 0px 6px 18px 0px rgba(255, 255, 255, 0.8);
+                z-index: 1;
+                border-radius: 10px;
+                margin-left:8px;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown a:hover {background-color: #ddd;}
+
+            .show {display: block;}
+            .text{
+                font-size: 20px;
+                margin-bottom:20px;
+                color: #eeeeee;
+            }
+            .btn {
+                background-color: black;
+                color: #eeeeee;
+                width: 100px;
+                height: 25px;
+                margin-top: 15px;
+                margin-bottom: 100px;
+                border-radius: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                border: 0;
+                font-size: 15px;
+                text-align:center;
+                padding-top: 2px;
+            }  
+            table{
+                text-align:left;
+                width: 400px;
+                color:  #eeeeee;
+                margin-left:15px;
+            }
+            .pulse{
+                background-color:  #eeeeee;
+                color: black;
+                width: 250px;
+                height: 25px;
+                margin-top: 13px;
+                border-radius: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                border: 0;
+                font-size: 15px;
+                text-align:center;
+                padding-top: 2px;
+            }
     </style>
 </head>
 <body>
-<header>
-    <nav>
-        <a href="{{route('show.profile')}}"><img class="img_header" src="{{ asset('storage/uploads/профиль.png')}}"></a>
-        <a href="/show/subcaterories"><img class="img_header" src="{{ asset('storage/uploads/icons8-категории-50.png')}}"></a>
-        <a href="/show/recipes"><img class="img_header" src="{{ asset('storage/uploads/главная.png')}}"></a>
-    </nav>
-    <form action="" method="" class="form_search">
-        <input class="search" name="search" placeholder="Поиск..." type="search">
-        <button class="but_search" type="submit"></button>
-    </form>
-    <div>
-        <img class="img_log" src="{{ asset('storage/uploads/Desktop - 4.png')}}">
-    </div>
-</header>
 <div class="container">
-    @foreach($users as $user)
-    <div class="item">
-    <table>
-            <tr>
-                <td colspan="3">
-                    @isset($user->photo)
-                        <img src="{{ asset('storage/' . $user->photo) }}" alt="{{$user->name}}">
-                    @endisset
-                    <div>
-                        <form action="{{ route('profile.update', Auth::id()) }}">
-                            <button type="submit" class="btn_like">
-                                <img class="img_like" src="{{ asset('storage/uploads/yfcnhjqrb.png')}}">
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <div class="name">
-                        <p class="headline">{{$user->name}}</p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <div class="entr">
-                        <a href="/authenticate">Выйти из профиля</a>
-                    </div>
-                </td>
-            </tr>
-    </table>
-</div>
-    @endforeach
-</div>
+@foreach($users as $user)
+@php
+    $userFound = false; 
+@endphp
+@foreach($pulse_zones as $pulse_zone)
+    @if ($pulse_zone->users_id === Auth::id())
+        @php
+            $userFound = true;
+        @endphp
+        @break
+    @endif
+@endforeach
+    <div class="icon-bar" class="item">
+        <a class="active" href="#"><img class="fa fa-search" src="{{ asset('storage/uploads/home.jpg')}}"></a> 
+        <a href="#"><img class="img_like" src="{{ asset('storage/uploads/profile.png')}}"></a> 
+        <a href="#"><img class="img_like" src="{{ asset('storage/uploads/14815.png')}}"></a> 
+        <a href="#"><img class="fa fa-search" src="{{ asset('storage/uploads/trainings.png')}}"></a>
+    </div>
+    <div class="item">    
+        <div class="photo">
+        </div>
+        <div class="name"><p>{{$user->name}}</p></div>
+        <div class="input">Дата рождения: {{$user->date_of_birth}}</div>
+        <div class="input">@if ($user->gender == 'F')
+                              Пол: Женский
+                            @else
+                               Пол: Мужской
+                            @endif
+        </div>
+        <div class="input">Рост: {{$user->height}}</div>
+        <div class="input">Вес: {{$user->weight}}</div>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Пульсовые зоны</button>
+            <div id="myDropdown" class="dropdown-content">
+            <div>   
+            @if ($userFound)
+                              <table>
+                                <thead>
+                                    <tr>
+                                    <th>Зона</th>
+                                    <th>Пульс (уд/мин)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Зона 1: Очень медленный бег</td>
+                                        <td>{{$pulse_zone->Z1}} - {{$pulse_zone->Z2}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Зона 2: Легкий темп</td>
+                                        <td>{{$pulse_zone->Z2}} - {{$pulse_zone->Z3}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Зона 3: Темповый бег</td>
+                                        <td>{{$pulse_zone->Z3}} - {{$pulse_zone->Z4}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Зона 4: Бег на уровне ПАНО</td>
+                                        <td>{{$pulse_zone->Z4}} - {{$pulse_zone->Z5}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Зона 5: Бег в зоне МПК</td>
+                                        <td>{{$pulse_zone->Z5}} +</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                            @else
+                                <form action="{{ route('pulse') }}" method="POST">
+                                    @csrf
+                                    <button class="pulse" type="submit">Рассчитать пульсовые зоны</button>
+                                </form>
+            @endif
+            </div>
+            </div>
+        </div>
+        <div class="text">Данные учетной записи</div>
+        <div class="input">Телефон: {{$user->phone_number}}</div>
+        <div class="input">E-mail: {{$user->email}}</div>
+        <form action="/logout" method="POST">
+            @csrf
+            <button class="btn" type="submit">Выход</button>
+        </form>
+    </div>
+    <div>
+        <form action="{{ route('profile.update', Auth::id()) }}">
+             <button type="submit"><img src="{{ asset('storage/uploads/yfcnhjqrb.png')}}"></button>
+        </form>
+    </div>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
+    </script>
+@endforeach  
+</div>    
 </body>
 </html>
 

@@ -41,7 +41,7 @@
                 display: block;
                 width: 67%;
                 padding: 8px;
-                margin: 30px 35px 50px;
+                margin: 30px 35px 10px;
                 border-radius: 15px;
                 background-color: #F7F0C6;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -83,8 +83,8 @@
                 <input name="name" class="input" type="text" placeholder="Ваше имя">
                 <input name="email" class="input" type="email" placeholder="Ваш e-mail">
                 <input name="password" class="input" type="password" placeholder="Пароль">
-                <div class="regestr"><a href="/registration">Зарегистрироваться</a></div>
                 <button class="btn" type="submit">Войти</button>
+                <div class="regestr"><a href="/registration">Зарегистрироваться</a></div>
             </form>
         </div>
     </body>

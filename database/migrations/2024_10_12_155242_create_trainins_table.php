@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('date');
+            $table->integer('distance');
+            $table->LONGTEXT('comment');
             $table->timestamps();
         });
     }

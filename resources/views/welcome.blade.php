@@ -41,12 +41,13 @@
 </head>
 <body>
 <header>
+
 </header>
 <div class="icon-bar">
-  <a class="active" href="#"><img class="fa fa-search" src="{{ asset('storage/app/public/uploads/home.png')}}"></a> 
-  <a href="#"><i class="fa fa-search"></i></a> 
-  <a href="#"><i class="fa fa-envelope"></i></a> 
-  <a href="#"><i class="fa fa-globe"></i></a>
+  <a class="active" href="#"><img class="fa fa-search" src="{{ asset('storage/uploads/home.jpg')}}"></a> 
+  <a href="#"><img class="img_like" src="{{ asset('storage/uploads/profile.png')}}"></a> 
+  <a href="#"><img class="img_like" src="{{ asset('storage/uploads/14815.png')}}"></a> 
+  <a href="#"><img class="fa fa-search" src="{{ asset('storage/uploads/trainings.png')}}"></a>
 </div>
 </body>
 </html>
