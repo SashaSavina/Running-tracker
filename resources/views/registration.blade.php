@@ -13,8 +13,11 @@
                 color:red;
         }
         body {
-                font-family: algerian, serif;
-                background: #E8EFF8;
+                font-family: 'MyFont';
+                font-size: 16px;
+                background-image: url('{{ asset('img/Gradient.jpg') }}');
+                background-size: 1500px 5000px;
+                background-repeat: no-repeat; /* Не повторяем картинку */
             }    
         .form-slider {
             position: relative;
@@ -64,19 +67,22 @@
                 padding-bottom:25px;
                 width: 500px;
                 font-size: 27px;
+                color: #eeeeee;
             }
             .btn {
                 width: 20%;
                 height: 25px;
-                padding-left: 8px;
                 margin-left:155px;
                 margin-bottom:10px;
                 border-radius: 15px;
-                background-color: #F7F0C6;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 border: 0;
                 font-family: algerian, serif;
-                font-size: 18px;
+                display: block;
+                padding: 1px;
+                font-size: 16px;
+                background-color: black;
+                color: #eeeeee;
             }
             .btn_reg{
                 width: 35%;
@@ -91,6 +97,10 @@
                 font-family: algerian, serif;
                 font-size: 18px;
             }
+            .container{
+                margin-left: 60px;
+                margin-top: 200px;
+            }
     </style>
     </head>
     <body>
@@ -101,7 +111,7 @@
                     <li>{{$message}}</li>
                 @endforeach
             </ul>    
-        <div class="container mt-5">
+        <div class="container">
             <div class="reg">
                 Регистрация
             </div>

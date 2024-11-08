@@ -26,3 +26,10 @@ Route::post('/show/profile', [\App\Http\Controllers\ProfileController::class, 'p
 Route::get('/edit/profile{id}', [\App\Http\Controllers\ProfileController::class, 'index'])->name('edit.profile');
 Route::put('/edit/profile{id}', [\App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.update');
 
+
+Route::get('/loading/file', [\App\Http\Controllers\FileController::class, 'show']);
+Route::post('/trainings/import', [\App\Http\Controllers\FileController::class, 'import'])->name('trainings.import');
+
+Route::get('/my/training', [\App\Http\Controllers\TrainingController::class, 'show']);
+
+

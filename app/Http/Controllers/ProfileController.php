@@ -68,13 +68,16 @@ class ProfileController extends Controller
             'name' => request('name'),
             'email' => request('email'),
             'phone_number' => request('phone_number'),
+            'gender' => request('gender'),
+            'height' => request('height'),
+            'weight' => request('weight'),
             'password' => bcrypt(request('password')),
         ]);
         $users=DB::table('users')
             ->where('id',Auth::user()->id)
             ->get();
-        $recipe = DB::table('recipes')
+            $pulse_zones = DB::table('pulse_zones')
             ->get();
-       return redirect('/show/profile');
+        return view('profile', compact('users','pulse_zones'));
     }
 }

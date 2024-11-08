@@ -8,44 +8,41 @@
         html {
             overflow: scroll;
         }
-        * {
-            box-sizing: border-box;
-        }
         body {
             font-family: algerian, serif;
             font-size: 16px;
-            background: #326fc9;
+            background-image: url('{{ asset('img/Gradient.jpg') }}');
+            background-size: 1700px 1500px;
+            background-repeat: no-repeat; /* Не повторяем картинку */
+            background-position: center; /* Центрируем картинку */
         }
         .icon-bar {
-            width: 90px;
-            height: 295px;
-            background-color: #2661b8;
+            width: 80px;
+            height: 300px;
+            background-color: #335eb5d8;
             box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2), /* Верхняя тень */
-                       inset 5px 0 10px rgba(0, 0, 0, 0.2); /* Левая тень */
-
+                        inset 5px 0 10px rgba(0, 0, 0, 0.2); /* Левая тень */
+            border-radius: 0px 0 10px 0; /* Верхние углы 10px, нижние 0 */
+          
         }
-
         .icon-bar a {
             display: block;
             text-align: center;
-            padding: 16px;
+            padding-top:16px;
+            padding-bottom: 10px;
             transition: all 0.3s ease;
             color: white;
             font-size: 36px;
         }
-
         .icon-bar a:hover {
             background-color: #000;
         }
-
         .active {
             background-color: #eeeeee !important;
         }
-
         .container {
             display: flex;
         }
-
         .item {
         flex: 1;
         margin: 0px;
@@ -93,18 +90,17 @@
                 padding-left: 10px;
                 padding-top: 2px;
                 cursor: pointer;
+                margin-left: 0%;
+            
             }
-
             .dropbtn:hover, .dropbtn:focus {
                 background-color: #eeeeee;
                 color:black;
             }
-
             .dropdown {
                 position: relative;
                 display: inline-block;
             }
-
             .dropdown-content {
                 display: none;
                 position: absolute;
@@ -115,18 +111,15 @@
                 box-shadow: 0px 6px 18px 0px rgba(255, 255, 255, 0.8);
                 z-index: 1;
                 border-radius: 10px;
-                margin-left:8px;
+                margin-left:0px;
             }
-
             .dropdown-content a {
                 color: black;
                 padding: 12px 16px;
                 text-decoration: none;
                 display: block;
             }
-
             .dropdown a:hover {background-color: #ddd;}
-
             .show {display: block;}
             .text{
                 font-size: 20px;
@@ -166,6 +159,23 @@
                 text-align:center;
                 padding-top: 2px;
             }
+            .img{
+                width: 40px; 
+                height: 40px;
+            }
+            .img_edit{
+                width: 25px;
+                margin-top:3px;
+                height: 25px;
+            }
+            .edit{
+                width: 40px;
+                height: 40px;
+                background-color: #335eb5d8;
+                box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2), /* Верхняя тень */
+                          inset 3px 0 5px rgba(0, 0, 0, 0.2); /* Левая тень */
+                border-radius: 5px;
+            }
     </style>
 </head>
 <body>
@@ -183,10 +193,10 @@
     @endif
 @endforeach
     <div class="icon-bar" class="item">
-        <a class="active" href="#"><img class="fa fa-search" src="{{ asset('storage/uploads/home.jpg')}}"></a> 
-        <a href="#"><img class="img_like" src="{{ asset('storage/uploads/profile.png')}}"></a> 
-        <a href="#"><img class="img_like" src="{{ asset('storage/uploads/14815.png')}}"></a> 
-        <a href="#"><img class="fa fa-search" src="{{ asset('storage/uploads/trainings.png')}}"></a>
+        <a href="/"><img class="img" src="{{ asset('img/home.jpg')}}"></a> 
+        <a class="active" href="/show/profile"><img class="img" src="{{ asset('img/profile.png')}}"></a> 
+        <a href="/loading/file"><img class="img" src="{{ asset('img/trainings.png')}}" ></a> 
+        <a href="/my/training"><img class="img" src="{{ asset('img/statistic.png')}}"></a>
     </div>
     <div class="item">    
         <div class="photo">
@@ -203,9 +213,8 @@
         <div class="input">Вес: {{$user->weight}}</div>
         <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">Пульсовые зоны</button>
-            <div id="myDropdown" class="dropdown-content">
-            <div>   
-            @if ($userFound)
+            <div id="myDropdown" class="dropdown-content">  
+                @if ($userFound)
                               <table>
                                 <thead>
                                     <tr>
@@ -241,8 +250,7 @@
                                     @csrf
                                     <button class="pulse" type="submit">Рассчитать пульсовые зоны</button>
                                 </form>
-            @endif
-            </div>
+                @endif
             </div>
         </div>
         <div class="text">Данные учетной записи</div>
@@ -255,7 +263,7 @@
     </div>
     <div>
         <form action="{{ route('profile.update', Auth::id()) }}">
-             <button type="submit"><img src="{{ asset('storage/uploads/yfcnhjqrb.png')}}"></button>
+             <button class="edit" type="submit"><img class="img_edit" src="{{ asset('img/yfcnhjqrb.png')}}"></button>
         </form>
     </div>
     <script>

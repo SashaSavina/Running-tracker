@@ -13,10 +13,17 @@
                 color:red;
             }
             body {
-                font-family: algerian, serif;
+                font-family: 'MyFont';
                 font-size: 16px;
-                background: #E8EFF8;
+                background-image: url('{{ asset('img/Gradient.jpg') }}');
+                background-size: 1500px 5000px;
+                background-repeat: no-repeat; /* Не повторяем картинку */
+                background-position: center; /* Центрируем картинку */
             }
+            a:visited {
+                color: inherit; /* Наследует цвет от родительского элемента */
+            }
+
             * {
                 box-sizing: border-box;
             }
@@ -34,8 +41,9 @@
             }
             .reg{
                 margin: 10px 87px 20px;
-                font-size: 20px;
+                font-size: 30px;
                 position: relative;
+                color: #eeeeee;
             }
             .btn {
                 display: block;
@@ -43,14 +51,15 @@
                 padding: 8px;
                 margin: 30px 35px 10px;
                 border-radius: 15px;
-                background-color: #F7F0C6;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 border: 0;
                 font-family: algerian, serif;
                 font-size: 16px;
+                background-color: black;
+                color: #eeeeee;
+                text-align:center;
             }  
             .container {
-                background-color: #ffffff;
                 border-radius: 15px;
                 position: relative;
                 left:610px;
@@ -63,7 +72,7 @@
                 transform: translate(-50%, -50%);
                 }
             .regestr{
-             color: black;
+             color: #eeeeee;
              position: relative;
              left: 45px;
              top:10px;

@@ -12,7 +12,10 @@
         body {
             font-family: algerian, serif;
             font-size: 16px;
-            background: #326fc9;
+            background-image: url('{{ asset('img/Gradient.jpg') }}');
+            background-size: 1700px 1150px;
+            background-repeat: no-repeat; /* Не повторяем картинку */
+            background-position: center; /* Центрируем картинку */
         }
         .input {
                 font-size: 25px;
@@ -50,17 +53,19 @@
             top:30px;
             font-size: 20px;
             position: relative;
+            color: #eeeeee;
         }
         .btn {
                 background-color: black;
                 color: #eeeeee;
                 width: 200px;
                 height: 25px;
-                margin-top: 15px;
-                margin-bottom: 100px;
+                margin-top: 100px;
+                margin-left: 250px;
+                margin-bottom: 50px;
                 border-radius: 15px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-                border: 0;
+                border: 1px solid #eeeeee;
                 font-size: 15px;
                 text-align:center;
                 padding-top: 2px;
@@ -76,14 +81,15 @@
         }
         .input-file span {
             position: relative;
-            top: 80px;
-            left: 48px;
-            border: 1px solid #BDCDDD;
+            top: 50px;
+            left: 270px;
+            border: 1px solid #eeeeee;
             font-size: 14px;
             vertical-align: middle;
             text-align: center;
             border-radius: 15px;
-            background-color: #BDCDDD;
+            background-color: black;
+            color: #eeeeee;
             height: 25px;
             padding: 10px 20px;
             box-sizing: border-box;
@@ -102,7 +108,6 @@
             background-color: #A6CAF0;
         }
         .container{
-            background-color: #ffffff;
             border-radius: 15px;
             display: flex;
             flex-wrap: wrap;
@@ -113,7 +118,7 @@
         }
         .text{
             position: relative;
-            top: 100px;
+            top: 85px;
             left: 150px;
         }
         .password{
