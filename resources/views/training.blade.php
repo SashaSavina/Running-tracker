@@ -21,7 +21,7 @@
             font-family: 'MyFont';
             font-size: 16px;
             background-image: url('{{ asset('img/Gradient.jpg') }}');
-            background-size: 1500px 5000px;
+            background-size: 1500px 7000px;
             background-repeat: no-repeat; /* Не повторяем картинку */
             background-position: center; /* Центрируем картинку */
 
@@ -110,7 +110,7 @@
                 box-shadow: 0px 6px 18px 0px rgba(255, 255, 255, 0.8);
                 z-index: 1;
                 border-radius: 10px;
-                right:30px
+                right:30px;
             }
             .dropdown-content a {
                 color: black;
@@ -124,6 +124,10 @@
                 width: 400px;
                 height: 400px; 
                 margin: 0 auto;
+                margin-bottom: 80px;
+            }
+            h2{
+              color: #eeeeee;
             }
     </style>
 </head>
@@ -136,6 +140,11 @@
         <a class="active" href="/my/training"><img class="img" src="{{ asset('img/statistic.png')}}"></a>
     </div>
     <div class="item">
+        <div class="myChart">
+            <h2>Cтатистика по всем тренировкам:</h2>
+            <canvas id="myChart"></canvas>
+        </div>
+        
         <table>
         <tr>
             <th>    </th>
@@ -190,7 +199,7 @@
                                         @php
                                             $bas_sum = $bas_sum + $base->duration;
                                         @endphp
-                                            {{$base->duration}} мин</br> ({{round($base->duration / $training->duration * 100, 1) }}%)
+                                            {{$base->duration}} сек</br> ({{round($base->duration / $training->duration * 100, 1) }}%)
                                         @endif
                                     @endforeach
                                 </th>
@@ -203,7 +212,7 @@
                                             @php
                                                 $int_sum = $int_sum + $intenseve->duration;
                                             @endphp
-                                            {{$intenseve->duration}} мин</br>({{round($intenseve->duration / $training->duration * 100,1)}}%)
+                                            {{$intenseve->duration}} сек</br>({{round($intenseve->duration / $training->duration * 100,1)}}%)
                                         @endif
                                     @endforeach
                                 </th>
@@ -213,11 +222,6 @@
         </tr>
         @endforeach
         </table>
-        <div class="myChart">
-            <p>Cтатистика по всем тренировкам:</p>
-            <canvas id="myChart"></canvas>
-        </div>
-        
     </div>    
 </div> 
 <script>

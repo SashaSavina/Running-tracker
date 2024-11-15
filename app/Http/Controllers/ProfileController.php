@@ -44,7 +44,13 @@ class ProfileController extends Controller
             'Z4' => $max*0.8,
             'Z5' => $max*0.9,
         ]);
-        return redirect('/');
+
+        $users=DB::table('users')
+            ->where('id',Auth::user()->id)
+            ->get();
+            $pulse_zones = DB::table('pulse_zones')
+            ->get();
+        return view('profile', compact('users','pulse_zones'));
     }
 
     public function index(string $id)

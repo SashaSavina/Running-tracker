@@ -85,15 +85,16 @@
                 color: #eeeeee;
             }
             .btn_reg{
-                width: 35%;
+                width: 45%;
                 height: 25px;
                 padding-left: 8px;
-                margin-left:120px;
+                margin-left:100px;
                 margin-bottom:10px;
                 border-radius: 15px;
-                background-color: #F7F0C6;
+                background-color: black;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 border: 0;
+                color: #eeeeee;
                 font-family: algerian, serif;
                 font-size: 18px;
             }

@@ -6,14 +6,64 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\DateTime;
+use Carbon\Carbon;
  
 
 class FileController extends Controller
 {
-    public function show()
+
+  public function index(Request $request)
     {
-    return view('file');
+      if (Auth::check()) {
+        $year = $request->input('year', Carbon::now()->year);
+        $month = $request->input('month', Carbon::now()->month);
+
+        // Создаем объект Carbon для текущего месяца
+        $date = Carbon::create($year, $month, 1);
+
+        // Получаем предыдущий и следующий месяцы
+        $prevMonth = $date->copy()->subMonth();
+        $nextMonth = $date->copy()->addMonth();
+
+        // Получаем дни недели
+        $daysOfWeek = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+        // Получаем количество дней в месяце
+        $daysInMonth = $date->daysInMonth;
+
+        // Получаем первый день месяца
+        $firstDayOfMonth = $date->copy()->startOfMonth()->dayOfWeek;
+        $firstDayOfMonth-=1;
+
+        // Создаем массив дней для календаря
+        $calendar = [];
+        $day = 1;
+
+        // Заполняем массив дней
+        for ($week = 0; $week < 6; $week++) {
+            for ($dayOfWeek = 0; $dayOfWeek < 7; $dayOfWeek++) {
+                if ($week == 0 && $dayOfWeek < $firstDayOfMonth) {
+                    $calendar[$week][$dayOfWeek] = '';
+                } else if ($day > $daysInMonth) {
+                    break 2;
+                } else {
+                    $calendar[$week][$dayOfWeek] = $day;
+                    $day++;
+                }
+            }
+        }
+        $trainings=DB::table('trainings')
+                    ->where('users_id',Auth::user()->id)
+                    ->get();
+        
+        return view('file', compact('calendar', 'year', 'month', 'daysOfWeek', 'prevMonth', 'nextMonth','date','trainings'));
+      }
+      else {
+        return view('entrance');
+      }
     }
+
+
 
 
     public function import(Request $request)
@@ -49,10 +99,18 @@ class FileController extends Controller
       $baseDuration = 0;
       $intensiveDuration = 0;
     
+      $pulseZone = DB::table('pulse_zones')
+        ->where('users_id', Auth::user()->id)
+        ->first(); // Используйте first() для получения одного объекта
+
+      if ($pulseZone) {
+        $z3Value = $pulseZone->Z3; 
+      }
+
       $i = 0;
       while ($i < $seconds) {
         // Проверка на "базовый" или "интенсивный" этап (логика зависит от ваших критериев)
-        if ($pulses[$i] < 130 && $temps[$i] < 6.5) {
+        if ($pulses[$i] < $z3Value) {
           $baseDuration++;
         } else {
           $intensiveDuration++;
