@@ -85,7 +85,7 @@ class FileController extends Controller
     
       // Сохранение данных в таблицу
       $trainingId = DB::table('trainings')->insertGetId([
-        'users_id' => 1,  
+        'users_id' => Auth::user()->id,  
         'date' => $date,
         'distance' => $distance,
         'comment' => null, // Добавьте, если нужно
@@ -139,7 +139,7 @@ class FileController extends Controller
         ]
       ]);
     
-      return redirect('/');
+      return redirect('/loading/file');
     }
 
 }

@@ -9,7 +9,7 @@
             overflow: scroll;
         }
         body {
-            font-family: algerian, serif;
+            font-family:  sans-serif;
             font-size: 16px;
             background-image: url('{{ asset('img/Gradient.jpg') }}');
             background-size: 1700px 1500px;
@@ -54,11 +54,10 @@
             color: #eeeeee;
         }
         .photo{
-            width: 150px; 
-            height: 150px; 
-            background-color: #eeeeee; 
+            width: 200px; 
+            height: 200px; 
             border-radius: 50%; 
-            margin-left: 44%;
+            margin-left: 0%;
             margin-top:30px;
         }
         .input {
@@ -74,12 +73,12 @@
                 font-size: 16px;
                 text-align:left;
                 padding-left: 10px;
-                padding-top: 2px;
+                padding-top: 3px;
             }
             .dropbtn {
                 background-color: black;
                 color: #eeeeee;
-                width: 400px;
+                width: 415px;
                 height: 25px;
                 margin-bottom: 20px;
                 border-radius: 15px;
@@ -90,7 +89,7 @@
                 padding-left: 10px;
                 padding-top: 2px;
                 cursor: pointer;
-                margin-left: 0%;
+                margin-left: 10px;
             
             }
             .dropbtn:hover, .dropbtn:focus {
@@ -105,13 +104,13 @@
                 display: none;
                 position: absolute;
                 background-color: #2661b8;
-                width: 400px;
+                width: 425px;
                 min-height: 50px;
                 overflow: auto;
                 box-shadow: 0px 6px 18px 0px rgba(255, 255, 255, 0.8);
                 z-index: 1;
                 border-radius: 10px;
-                margin-left:0px;
+                margin-left:5px;
             }
             .dropdown-content a {
                 color: black;
@@ -176,6 +175,9 @@
                           inset 3px 0 5px rgba(0, 0, 0, 0.2); /* Левая тень */
                 border-radius: 5px;
             }
+            .inf{
+                margin-top:80px;
+            }
     </style>
 </head>
 <body>
@@ -198,9 +200,7 @@
         <a href="/loading/file"><img class="img" src="{{ asset('img/trainings.png')}}" ></a> 
         <a href="/my/training"><img class="img" src="{{ asset('img/statistic.png')}}"></a>
     </div>
-    <div class="item">    
-        <div class="photo">
-        </div>
+    <div class="item inf" >    
         <div class="name"><p>{{$user->name}}</p></div>
         <div class="input">Дата рождения: {{$user->date_of_birth}}</div>
         <div class="input">@if ($user->gender == 'F')

@@ -10,6 +10,21 @@ use App\Http\Controllers\DateTime;
 
 class ProfileController extends Controller
 {
+
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'image' => ['required', 'image', 'max:2048'], 
+        ]);
+
+        $path = $request->file('image')->store('img', 'public'); 
+
+        DB::table('users')->where('id',Auth::user()->id)->update(['photo' => $path]); 
+
+        return redirect()->back();
+    }
+
+
     public function show()
     {
         if (Auth::check()) {
@@ -86,4 +101,6 @@ class ProfileController extends Controller
             ->get();
         return view('profile', compact('users','pulse_zones'));
     }
+
+
 }

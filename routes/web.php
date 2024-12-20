@@ -2,6 +2,12 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +37,15 @@ Route::get('/loading/file', [\App\Http\Controllers\FileController::class, 'index
 Route::post('/trainings/import', [\App\Http\Controllers\FileController::class, 'import'])->name('trainings.import');
 
 Route::get('/my/training', [\App\Http\Controllers\TrainingController::class, 'show']);
+
+Route::get('/training_plans/create', [\App\Http\Controllers\TrainingPlanController::class, 'create'])->name('training_plans.create');
+Route::post('/training_plans', [\App\Http\Controllers\TrainingPlanController::class, 'store'])->name('training_plans.store');
+Route::get('/training_plans', [\App\Http\Controllers\TrainingPlanController::class, 'index'])->name('training_plans.index');
+
+Route::get('/plans/user/{user}', [\App\Http\Controllers\TrainingPlanController::class, 'show'])->name('plans.show');
+
+Route::post('/image/upload', [\App\Http\Controllers\ProfileController::class, 'upload'])->name('image.upload');
+
 
 
 

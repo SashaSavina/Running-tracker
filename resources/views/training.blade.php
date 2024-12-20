@@ -6,10 +6,6 @@
     <title>Comida</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        @font-face {
-            font-family: 'MyFont';
-            src: url('{{ asset('ofont.ru_Romul.jpg') }}') format('truetype');
-        }
         html {
             overflow: scroll;
         }
@@ -18,7 +14,7 @@
              -webkit-box-sizing: border-box;
         }
         body {
-            font-family: 'MyFont';
+            font-family:  sans-serif;
             font-size: 16px;
             background-image: url('{{ asset('img/Gradient.jpg') }}');
             background-size: 1500px 7000px;
@@ -28,7 +24,7 @@
         }
         .icon-bar {
             width: 80px;
-            height: 300px;
+            height: 297px;
             background-color: #335eb5d8;
             box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2), /* Верхняя тень */
                         inset 5px 0 10px rgba(0, 0, 0, 0.2); /* Левая тень */
@@ -49,6 +45,7 @@
         }
         .active {
             background-color: #eeeeee !important;
+            border-radius: 0px 0 10px 0; /* Верхние углы 10px, нижние 0 */
         }
         .img{
                 width: 40px; 
@@ -121,13 +118,19 @@
             .dropdown a:hover {background-color: #ddd;}
             .show {display: block;} 
             .myChart {
-                width: 400px;
+                width: 500px;
                 height: 400px; 
                 margin: 0 auto;
                 margin-bottom: 80px;
+                padding-left:55px ;
+                margin-bottom:130px;
             }
             h2{
               color: #eeeeee;
+              margin-bottom: 30px;
+            }
+            canvas{
+                margin-top:50px;
             }
     </style>
 </head>

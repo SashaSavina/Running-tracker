@@ -10,7 +10,7 @@
         }
         * {box-sizing: border-box;}
         body {
-            font-family: algerian, serif;
+            font-family:  sans-serif;
             font-size: 16px;
             background-image: url('{{ asset('img/Gradient.jpg') }}');
             background-size: 1700px 1150px;
@@ -50,7 +50,7 @@
         }
         .reg{
             left:210px;
-            top:30px;
+            top:60px;
             font-size: 20px;
             position: relative;
             color: #eeeeee;
@@ -150,15 +150,7 @@
                     <li>{{$message}}</li>
                 @endforeach
             </ul>
-            <div >
-                <label class="input-file">
-                    <input type="file" name="photo">
-                        @isset($user->photo)
-                            <img src="{{ asset('storage/' . $user->photo) }}" alt="{{$user->name}}">
-                        @endisset
-                    <span>Выберите файл</span>
-                </label>
-            </div>
+
             <div class="text">
                 <textarea name="name" class="input" placeholder="Редактировать название">{{$user->name}}</textarea>
                 <textarea name='email' class="input">{{$user->email}}</textarea>

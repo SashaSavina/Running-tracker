@@ -20,7 +20,9 @@ class TrainingController extends Controller
                     ->get();
                     $intensives = DB::table('intensives')
                     ->get();
-                return view('training', compact('trainings','bases' ,'intensives'));
+                if ($trainings->isNotEmpty()) {
+                    return view('training', compact('trainings','bases' ,'intensives'));
+                }else{return view('notraning');}
             } else {
               return view('entrance');
             }

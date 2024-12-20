@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Comida</title>
+    <title></title>
     <style>
-        @font-face {
-            font-family: 'MyFont';
-            src: url('{{ asset('ofont.ru_Romul.jpg') }}') format('truetype');
-        }
+
         html {
             overflow: scroll;
         }
@@ -17,7 +14,7 @@
              -webkit-box-sizing: border-box;
         }
         body {
-            font-family: 'MyFont';
+            font-family:  sans-serif;
             font-size: 16px;
             background-image: url('{{ asset('img/Gradient.jpg') }}');
             background-size: 1500px 5000px;
@@ -53,6 +50,7 @@
                 width: 40px; 
                 height: 40px;
             }
+        
         .container {
             display: flex;
         }
@@ -79,6 +77,10 @@
             font-size: 40px;
             z-index: 1;
         }
+        h2{
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
         .p1{
             text-align: center;
             color:  #eeeeee;
@@ -88,11 +90,11 @@
         .p2{
             text-align: center;
             color:  #eeeeee;
-            font-size: 20px;
+            font-size: 18px;
             margin: 50px 0 0 100px;
             background-color:#1c325c;
             width: 420px;
-            padding:10px; 
+            padding:20px; 
             height: 205px;
             border-radius: 35px;
         }
@@ -100,17 +102,17 @@
             text-align: center;
             background-color:#eeeeee;
             color:   #000;
-            font-size: 20px;
+            font-size: 18px;
             margin: 0 0 0 750px;
             width: 400px;
-            padding:10px; 
+            padding:16px; 
             height: 155px;
             border-radius: 35px;
         }
         .p4{
             text-align: center;
             color:  #eeeeee;
-            font-size: 16px;
+            font-size: 14px;
             margin: 20px 0 100px 200px;
             background-color:#1c325c;
             width: 250px;
@@ -121,17 +123,17 @@
         .p5{
             text-align: left;
             color:  #eeeeee;
-            font-size: 20px;
-            margin: 50px 0 100px 170px;
+            font-size: 19px;
+            margin: 50px 0 100px 130px;
         }
         .p6{
             text-align: center;
             background-color:#eeeeee;
             color:  #000;
-            font-size: 16px;
+            font-size: 15px;
             margin: 0 0 0 450px;
             width: 450px;
-            padding:10px; 
+            padding:13px; 
             height: 170px;
             border-radius: 35px;
         }
@@ -180,7 +182,7 @@
         .text {
         color: #1c325c;
         font-size: 15px;
-        padding: 8px 12px;
+        padding: 3px 8px;
         position: absolute;
         left: 450px;
         bottom: 8px;

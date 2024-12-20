@@ -9,7 +9,7 @@
             overflow: scroll;
         }
         body {
-            font-family: algerian, serif;
+            font-family:  sans-serif;
             font-size: 16px;
             background-image: url('{{ asset('img/Gradient.jpg') }}');
             background-size: 1700px 1500px;
@@ -52,41 +52,6 @@
         .img{
                 width: 40px; 
                 height: 40px;
-        }
-        .input-file {
-            position: relative;
-            display: inline-block;
-        }
-        .input-file span {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            outline: none;
-            text-decoration: none;
-            font-size: 14px;
-            vertical-align: middle;
-            color: #eeeeee;
-            text-align: center;
-            border-radius: 7px;
-            background-color: black;
-            line-height: 22px;
-            height: 40px;
-            padding: 10px 20px;
-            box-sizing: border-box;
-            border: none;
-            margin: 0;
-            transition: background-color 0.2s;
-        }
-        .input-file input[type=file] {
-            position: absolute;
-            z-index: -1;
-            opacity: 0;
-            display: block;
-            width: 0;
-            height: 0;
-        }
-        .input-file:hover span {
-            background-color: #335eb5d8;
         }
         .calendar-container{
             margin:50px 50px 50px 145px;
@@ -141,12 +106,17 @@
         thead{
             color:black;
         }
+        .button-container {
+            display: flex; 
+            width: 455px;
+            padding-left:20px;
+            }
         .input-file button{
                 display: block;
-                width: 60%;
+                width: 40%;
                 padding: 6px;
-                margin: 15px 40px 10px;
-                border-radius: 15px;
+                margin: 15px 20px 10px;
+                border-radius: 7px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 border: 0;
                 font-family: algerian, serif;
@@ -154,6 +124,93 @@
                 background-color: black;
                 color: #eeeeee;
                 text-align:center;
+        }
+        .input-file {
+            position: relative;
+            display: inline-block;
+        }
+        .input-file span {
+            text-decoration: none;
+            font-size: 14px;
+            color: #eeeeee;
+            text-align: center;
+            border-radius: 7px;
+            background-color: black;
+            line-height: 22px;
+            height: 40px;
+            width: 240px;
+            padding: 8px 10px;
+            box-sizing: border-box;
+            border: none;
+            margin-top: 15px;
+        }
+        .input-file input[type=file] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+        .input-file:hover span {
+            background-color: #2B6CC4;
+        }
+        .input-plan1{
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            background-image: linear-gradient(to right, #2f38ca 0%, #2B6CC4 51%, #2f38ca 100%);
+            text-decoration: none;
+            font-size: 14px;
+            vertical-align: middle;
+            text-align: center;
+            border-radius: 7px;
+            line-height: 22px;
+            height: 40px;
+            width: 280px;
+            padding-top: 2.5px;
+            padding-left:15px;
+            box-sizing: border-box;
+            border: none;
+            margin-top: 20px;
+            margin-right: 60px;
+        }
+        .input-plan1:hover {
+            background-position: right center;
+        }
+        .input-plan2{
+            text-decoration: none;
+            font-size: 14px;
+            vertical-align: middle;
+            color: #eeeeee;
+            text-align: center;
+            border-radius: 7px;
+            background-color: black;
+            line-height: 22px;
+            height: 40px;
+            width: 140px;
+            padding: 8px 20px;
+            box-sizing: border-box;
+            border: none;
+            margin-top: 20px;
+            margin-left: -50px;
+        }
+        .input-plan2:hover {
+            background-color: #2B6CC4;
+        }
+        .btn-new {
+            text-align: center;
+            height: 40px;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 7px;
+            background-image: linear-gradient(to right, #2f38ca 0%, #2B6CC4 51%, #2f38ca 100%);
+        }
+
+        .btn-new:hover {
+            background-position: right center;
         }
     </style>
 </head>
@@ -209,12 +266,18 @@
                 </tbody>
             </table>
         </div>
+        <div>
+            <button class="input-plan1" onclick="window.location.href='/training_plans/create'">Создать план тренировок</button>
+            <button class="input-plan2" onclick="window.location.href='{{ route('plans.show', Auth::user()->id) }}'">Мой план</button>
+        </div>   
         <form action="{{ route('trainings.import') }}" method="post" enctype="multipart/form-data">
             @csrf
             <label class="input-file">
                 <input type="file" name="file" accept=".json">
-                <span type="submit">Добавить новую тренировку</span>
-                <button type="submit">Загрузить</button>
+                <div class="button-container">
+                    <span type="submit">Добавить новую тренировку</span>
+                    <button class="btn-new" type="submit">Загрузить</button>
+                </div>
             </label> 
         </form>
         </div>
