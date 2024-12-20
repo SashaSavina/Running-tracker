@@ -64,9 +64,9 @@ class TrainingPlanController extends Controller
     {
         $exercises = [];
         $baseExercises = [
-            'low' => ['Бег трусцой', 'Легкая пробежка', 'Растяжка'],
-            'medium' => ['Бег трусцой', 'Силовые упражнения', 'Интервальный бег', 'Растяжка'],
-            'high' => ['Интервальный бег', 'Бег с ускорениями', 'Силовые тренировки', 'Растяжка'],
+            'low' => ['Бег трусцой', 'Растяжка'],
+            'medium' => ['Бег трусцой', 'Интервальный бег', 'Растяжка'],
+            'high' => ['Интервальный бег', 'Бег с ускорениями', 'Растяжка'],
         ];
         $durations = [
             'low' => [30, 15],
@@ -141,8 +141,6 @@ class TrainingPlanController extends Controller
                 \Log::error("Ошибка при обработке элемента: " . json_encode($item) . " - " . $e->getMessage());
             }
         }
-
-
         return view('training_plans.show', compact('calendar', 'daysOfWeekRu', 'plan'));
 
 

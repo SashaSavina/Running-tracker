@@ -113,9 +113,9 @@
             }
         .input-file button{
                 display: block;
-                width: 40%;
+                width: 100%;
                 padding: 6px;
-                margin: 15px 20px 10px;
+                margin: 15px 17px 5px 0px;
                 border-radius: 7px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 border: 0;
@@ -270,18 +270,33 @@
             <button class="input-plan1" onclick="window.location.href='/training_plans/create'">Создать план тренировок</button>
             <button class="input-plan2" onclick="window.location.href='{{ route('plans.show', Auth::user()->id) }}'">Мой план</button>
         </div>   
-        <form action="{{ route('trainings.import') }}" method="post" enctype="multipart/form-data">
+        <form class="input-file" id="importForm" action="{{ route('trainings.import') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <label class="input-file">
-                <input type="file" name="file" accept=".json">
-                <div class="button-container">
-                    <span type="submit">Добавить новую тренировку</span>
-                    <button class="btn-new" type="submit">Загрузить</button>
-                </div>
-            </label> 
+            <div class="button-container">
+            <input type="file" id="fileInput" name="file" accept=".json" style="display: none;">
+            <button type="button" class="btn-new"  id="uploadButton">Добавить файл с тренировкой</button>
+            </div>
+            <input type="submit" style="display: none;">
         </form>
-        </div>
+        
+
 </div>    
+    <script>
+        document.getElementById('uploadButton').addEventListener('click', function() {
+    document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', function() {
+    if (this.files.length > 0) {
+        document.getElementById('importForm').submit();
+    }
+    });
+
+
+
+</script>
 </body>
 </html>
+
+
 
