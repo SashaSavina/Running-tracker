@@ -102,6 +102,12 @@
                 margin-left: 60px;
                 margin-top: 200px;
             }
+            ul{
+                position: absolute;
+                top: 500px;
+                left: 600px;
+                color:
+            }
     </style>
     </head>
     <body>
@@ -120,8 +126,8 @@
                 <div class="form-slide active">
                     <input name="name" class="input" type="text" placeholder="Ваше имя">
                     <input name="email" class="input" type="email" placeholder="Ваш e-mail">
-                    <input name="phone_number" class="input" type="tel" placeholder="Ваш телефон">
-                    <input name="password" class="input" type="password" placeholder="Пароль">
+                    <input name="phone_number" class="input phone_mask" type="tel" placeholder="Ваш телефон">
+                    <input name="password" class="input" type="password" placeholder="Пароль(минимум 8 символов)">
                     <input name="password_confirmation" class="input" type="password" placeholder="Пароль еще раз">
                     <button type="button" class="btn btn-primary next-slide">Далее</button>
                 </div>
@@ -134,7 +140,7 @@
                     </select>
                     <input name="height" class="input" type="number" placeholder="Рост (см)">
                     <input name="weight" class="input" type="number" placeholder="Вес (кг)">
-                    <button type="submit" class="btn_reg btn-primary">Зарегистрироваться</button>
+                    <button type="button" class="btn_reg btn-primary">Зарегистрироваться</button>
                     <button type="button" class="btn btn-secondary prev-slide">Назад</button>
                 </div>
             </div>
@@ -143,44 +149,85 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js" type="text/javascript"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+
     <script>
-        $(document).ready(function() {
-            var currentSlide = 1;
-            var totalSlides = $(".form-slide").length;
-
-            $(".next-slide").click(function() {
-                currentSlide++;
-                showSlide(currentSlide);
-            });
-
-            $(".prev-slide").click(function() {
-                currentSlide--;
-                showSlide(currentSlide);
-            });
-
-            function showSlide(n) {
-                $(".form-slide").removeClass("active");
-                $(".form-slide:nth-child(" + n + ")").addClass("active");
-
-                if (n == 1) {
-                    $(".prev-slide").prop("disabled", true);
-                } else {
-                    $(".prev-slide").prop("disabled", false);
-                }
-
-                if (n == totalSlides) {
-                    $(".next-slide").hide();
-                } else {
-                    $(".next-slide").show();
-                }
-
-                if (n > totalSlides) {
-                    currentSlide = totalSlides;
-                    showSlide(currentSlide);
-                }
-            }
+        $(".phone_mask").mask("+7(999)999-99-99");
+    
+    $(document).ready(function() {
+        var currentSlide = 1;
+        var totalSlides = $(".form-slide").length;
+    
+        $(".next-slide").click(function() {
+            currentSlide++;
             showSlide(currentSlide);
         });
+    
+        $(".prev-slide").click(function() {
+            currentSlide--;
+            showSlide(currentSlide);
+        });
+    
+        function showSlide(n) {
+            $(".form-slide").removeClass("active");
+            $(".form-slide:nth-child(" + n + ")").addClass("active");
+    
+            if (n == 1) {
+                $(".prev-slide").prop("disabled", true);
+            } else {
+                $(".prev-slide").prop("disabled", false);
+            }
+    
+            if (n == totalSlides) {
+                $(".next-slide").hide();
+            } else {
+                $(".next-slide").show();
+            }
+    
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            }
+        }
+        showSlide(currentSlide);
+    });
+    
+    $(".btn_reg").click(function(e) {
+        e.preventDefault();
+        let formData = new FormData($('.form')[0]);
+
+    $.ajax({
+                    url: '/registration',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.href = '/show/profile';
+                        } else {
+                            window.location.href = '/show/profile';
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        let response = JSON.parse(xhr.responseText);
+                        if (response.errors) {
+                            let errorsList = $('.form ul');
+                            errorsList.empty();
+                            $.each(response.errors, function(field, messages) {
+                                $.each(messages, function(index, message) {
+                                    errorsList.append('<li>' + message + '</li>');
+                                });
+                            });
+                        } else {
+                            window.location.href = '/show/profile';
+                        }
+                    }
+                });
+            });
+   
     </script>
 </body>
 </html>

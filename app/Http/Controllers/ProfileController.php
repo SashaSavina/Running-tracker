@@ -88,6 +88,7 @@ class ProfileController extends Controller
         DB::table('users')->where('id','=',$id)->update([
             'name' => request('name'),
             'email' => request('email'),
+            'date_of_birth'=> request('date_of_birth'),
             'phone_number' => request('phone_number'),
             'gender' => request('gender'),
             'height' => request('height'),

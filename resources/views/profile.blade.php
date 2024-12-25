@@ -158,6 +158,19 @@
                 text-align:center;
                 padding-top: 2px;
             }
+            .puls1{
+                background-color:  #eeeeee;
+                color: black;
+                width: 250px;
+                height: 40px;
+                margin-top: 4px;
+                border-radius: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                border: 0;
+                font-size: 15px;
+                text-align:center;
+                padding-top: 2px;
+            }
             .img{
                 width: 40px; 
                 height: 40px;
@@ -203,7 +216,9 @@
     <div class="item inf" >    
         <div class="name"><p>{{$user->name}}</p></div>
         <div class="input">Дата рождения: {{$user->date_of_birth}}</div>
-        <div class="input">@if ($user->gender == 'F')
+        <div class="input">@if ($user->gender == NULL)
+                              Пол:
+                            @elseif($user->gender == 'F')    
                               Пол: Женский
                             @else
                                Пол: Мужской
@@ -245,11 +260,16 @@
                                     </tr>
                                 </tbody>
                                 </table>
-                            @else
-                                <form action="{{ route('pulse') }}" method="POST">
-                                    @csrf
-                                    <button class="pulse" type="submit">Рассчитать пульсовые зоны</button>
-                                </form>
+                @elseif($user->date_of_birth == null)
+                    <form action="{{ route('profile.update', Auth::id()) }}">
+                    @csrf
+                        <button class="puls1">Для расчета пульсовых зон</br> введите возраст, рост, вес</button>    
+                    </form>      
+                @else
+                    <form action="{{ route('pulse') }}" method="POST">
+                        @csrf
+                        <button class="pulse" type="submit">Рассчитать пульсовые зоны</button>
+                    </form>
                 @endif
             </div>
         </div>

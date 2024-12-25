@@ -13,29 +13,26 @@ class RegistrationController extends Controller
 {
     public function save(Request $request)
     {
+    
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone_number' => ['required', 'string', 'max:255'],
             'password' => ['required', 'min:8', 'confirmed'],
-            'date_of_birth' => ['required', 'date'],
-            'gender' => 'required|in:M,F',
-            'height' => ['required', 'integer'],
-            'weight' => ['required', 'integer'],
         ]);
 
-        DB::table('users')->insert([
-            'name' => request('name'),
-            'email' => request('email'),
-            'phone_number' => request('phone_number'),
-            'password' => bcrypt(request('password')),
-            'date_of_birth' => request('date_of_birth'),
-            'gender' => request('gender'),
-            'height' => request('height'),
-            'weight' => request('weight'),
-            'created_at' => now(),
+        $user = User::create([ // Используем User::create() для создания нового пользователя
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone_number' => $request->input('phone_number'),
+            'password' => Hash::make($request->input('password')), // Используем Hash::make() для хеширования пароля
+            'date_of_birth' => $request->input('date_of_birth'),
+            'gender' => $request->input('gender'),
+            'height' => $request->input('height'),
+            'weight' => $request->input('weight'),
         ]);
-        return redirect('/');
+
+        Auth::login($user);
+        return redirect('/show/profile');
     }
 
 

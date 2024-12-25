@@ -153,22 +153,29 @@
 
             <div class="text">
                 <textarea name="name" class="input" placeholder="Редактировать название">{{$user->name}}</textarea>
-                <textarea name='email' class="input">{{$user->email}}</textarea>
-                <textarea name='phone_number' class="input">{{$user->phone_number}}</textarea>
-                <select name="gender" class="input" >
-                    <option>Изменить пол: Женский</option>
+                <input type="date" name="date_of_birth" class="input" placeholder="{{ empty($user->date_of_birth) ? 'Укажите дату рождения' : null }}" value="{{ $user->date_of_birth ?? null }}">
+                <textarea name='email' class="input" >{{$user->email}}</textarea>
+                <textarea name='phone_number' class="input phone_mask" placeholder="Добавьте телефон">{{$user->phone_number}}</textarea>
+                <select name="gender" class="input">
+                    @if(empty($user->gender))
+                        <option disabled selected>Добавьте ваш пол</option>
+                    @else
+                        <option value="{{ $user->gender }}" selected>{{ $user->gender === 'M' ? 'Мужской' : ($user->gender === 'F' ? 'Женский' : $user->gender) }}</option>
+                    @endif
                     <option value="M">Мужской</option>
                     <option value="F">Женский</option>
                 </select>
-                <textarea name='height' class="input">{{$user->height}}</textarea>
-                <textarea name='weight' class="input">{{$user->weight}}</textarea>
+                <textarea name='height' class="input" placeholder="Добавьте ваш рост">{{$user->height}}</textarea>
+                <textarea name='weight' class="input" placeholder="Добавьте ваш вес">{{$user->weight}}</textarea>
                 <input name="password" class="input" type="password" placeholder="Пароль">
-                <input name="password_confirmation" class="input" type="password" placeholder="Пароль еще раз">
             </div>
             <button class="btn" type="submit">Сохранить</button>
             @endforeach
         </form>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js" type="text/javascript"></script>
+<script>$(".phone_mask").mask("+7(999)999-99-99");</script>    
 </body>
 </html>
 

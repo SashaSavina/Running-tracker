@@ -55,8 +55,17 @@ class FileController extends Controller
         $trainings=DB::table('trainings')
                     ->where('users_id',Auth::user()->id)
                     ->get();
-        
-        return view('file', compact('calendar', 'year', 'month', 'daysOfWeek', 'prevMonth', 'nextMonth','date','trainings'));
+                    
+        $hasPulseZone = DB::table('pulse_zones')
+              ->where('users_id', Auth::user()->id)->exists();
+
+        if($hasPulseZone) {
+          $pulse_zone = DB::table('pulse_zones')
+          ->where('users_id', Auth::user()->id)->get(); // получить запись, если есть.
+        } else {
+            $pulse_zone = []; // или $pulseZone = null;
+        }
+        return view('file', compact('pulse_zone','calendar', 'year', 'month', 'daysOfWeek', 'prevMonth', 'nextMonth','date','trainings'));
       }
       else {
         return view('entrance');
@@ -143,8 +152,50 @@ class FileController extends Controller
     }
 
 
+    public function create()
+    {
+        return view('addtrain');
+    }
+
+    public function store(Request $request)
+    {
+      $duration1=$request->input('duration')*60;
+      $duration2=$request->input('intduration')*60;
+      $duration3=$request->input('baseduration')*60;
+
+      $trainingId=DB::table('trainings')->insertGetId([
+        'users_id' => Auth::user()->id,  
+        'date' => $request->input('date'),
+        'distance' => $request->input('distance'),
+        'comment' => $request->input('comment'),
+        'duration' => $duration1,
+        'average_pules' => $request->input('average_pules'),
+        'average_temp' =>$request->input('average_temp'),
+        'created_at' => now(),
+      ]);
+      
+      DB::table('bases')->insert([
+        [
+          'trainings_id' => $trainingId, 
+          'type' => 'базовый',
+          'duration' => $duration3,
+          'created_at' => now(),
+        ]
+      ]);
+    
+      DB::table('intensives')->insert([
+        [
+          'trainings_id' => $trainingId,
+          'duration' => $duration2,
+          'created_at' => now(),
+        ]
+      ]);
+
+
+      return redirect('/loading/file');
+    }
+
 
 }
-
 
 

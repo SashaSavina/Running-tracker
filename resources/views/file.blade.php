@@ -106,8 +106,7 @@
         thead{
             color:black;
         }
-        .button-container {
-            display: flex; 
+        .button-container { 
             width: 455px;
             padding-left:20px;
             }
@@ -167,13 +166,14 @@
             border-radius: 7px;
             line-height: 22px;
             height: 40px;
-            width: 280px;
+            width: 275px;
             padding-top: 2.5px;
             padding-left:15px;
             box-sizing: border-box;
             border: none;
             margin-top: 20px;
-            margin-right: 60px;
+            margin-right:0px;
+            margin-left: 15px;
         }
         .input-plan1:hover {
             background-position: right center;
@@ -188,14 +188,35 @@
             background-color: black;
             line-height: 22px;
             height: 40px;
-            width: 140px;
+            width: 165px;
             padding: 8px 20px;
             box-sizing: border-box;
             border: none;
             margin-top: 20px;
-            margin-left: -50px;
+            margin-left: 10px;
         }
         .input-plan2:hover {
+            background-color: #2B6CC4;
+        }
+        .input-plan3{
+            position: absolute;
+            text-decoration: none;
+            font-size: 14px;
+            vertical-align: middle;
+            color: #eeeeee;
+            text-align: center;
+            border-radius: 7px;
+            background-color: black;
+            line-height: 22px;
+            height: 40px;
+            width: 455px;
+            padding: 8px 20px;
+            box-sizing: border-box;
+            border: none;
+            top: 575px;
+            right:458px
+        }
+        .input-plan3:hover {
             background-color: #2B6CC4;
         }
         .btn-new {
@@ -270,16 +291,22 @@
             <button class="input-plan1" onclick="window.location.href='/training_plans/create'">Создать план тренировок</button>
             <button class="input-plan2" onclick="window.location.href='{{ route('plans.show', Auth::user()->id) }}'">Мой план</button>
         </div>   
-        <form class="input-file" id="importForm" action="{{ route('trainings.import') }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="button-container">
-            <input type="file" id="fileInput" name="file" accept=".json" style="display: none;">
-            <button type="button" class="btn-new"  id="uploadButton">Добавить файл с тренировкой</button>
-            </div>
-            <input type="submit" style="display: none;">
-        </form>
-        
-
+        @if(empty($pulse_zone))
+            <form class="input-file" action="/show/profile">
+                @csrf
+                <button class="btn-new" type="submit">Рассчитать пульсовые зоны</button>
+            </form>
+        @else
+            <form class="input-file" id="importForm" action="{{ route('trainings.import') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="button-container">
+                <input type="file" id="fileInput" name="file" accept=".json" style="display: none;">
+                <button type="button" class="btn-new"  id="uploadButton">Добавить файл с тренировкой</button>
+                </div>
+                <input type="submit" style="display: none;">
+            </form>
+            <button class="input-plan3" onclick="window.location.href='/add/traning'">Добавить тренировку вручную</button>
+        @endif
 </div>    
     <script>
         document.getElementById('uploadButton').addEventListener('click', function() {

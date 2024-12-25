@@ -46,6 +46,10 @@ Route::get('/plans/user/{user}', [\App\Http\Controllers\TrainingPlanController::
 
 Route::post('/image/upload', [\App\Http\Controllers\ProfileController::class, 'upload'])->name('image.upload');
 
+Route::get('/add/traning', [\App\Http\Controllers\FileController::class, 'create']);
+
+Route::post('/add/traning', [\App\Http\Controllers\FileController::class, 'store'])->name('training.store');
+
 
 
 
