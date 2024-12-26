@@ -12,7 +12,7 @@
         body {
             font-family:  sans-serif;
             font-size: 16px;
-            background-image: url('{{ asset('img/Gradient.jpg') }}');
+            background-image: url('{{ asset('img/Gradient1.jpeg') }}');
             background-size: 3000px 2200px;
             background-repeat: no-repeat; /* Не повторяем картинку */
             background-position: center; /* Центрируем картинку */
