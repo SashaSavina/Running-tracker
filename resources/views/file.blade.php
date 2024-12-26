@@ -213,8 +213,8 @@
             padding: 8px 20px;
             box-sizing: border-box;
             border: none;
-            top: 575px;
-            right:458px
+            top: 74%;
+            right:31.1%;
         }
         .input-plan3:hover {
             background-color: #2B6CC4;

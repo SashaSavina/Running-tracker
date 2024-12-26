@@ -65,12 +65,12 @@
                 font-size: 25px;
                 width: 400px;
                 height: 25px;
+                margin:0 auto;
                 margin-bottom: 20px;
                 border-radius: 15px;
                 background-color: #eeeeee;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 border: 1px solid #ccc;
-                margin-left: 34.5%;
                 font-size: 16px;
                 text-align:left;
                 padding-left: 10px;
