@@ -71,12 +71,12 @@
                 padding-top: 2px;
             }  
         img{
-            height: 180px;
-            width: 180px;
+            width: 40px; 
+            height: 40px;
             border-radius: 15px;
             position: relative;
-            top:40px;
-            left:210px;
+            top:-4px;
+            left:0px;
             object-fit: cover;
         }
         .input-file span {
@@ -136,10 +136,42 @@
             background-color: #BDCDDD;
             border-radius: 15px;
         }
+        .img{
+                box-shadow: 3px 3px 7px 7px rgba(0, 0, 0, 0.2);
+                margin: 15px 0 0 15px;
+                width: 65px;
+                height: 65px;
+                padding:12px;
+                background-color: #eeeeee;
+                border-radius: 0px 0 10px 0; /* Верхние углы 10px, нижние 0 */
+            }
+        .icon-bar {
+            width: 65px;
+            height: 65px;
+            background-color: #eeeeee;
+            box-shadow: 3px 3px 7px 7px rgba(0, 0, 0, 0.2);
+            border-radius: 0px 0 10px 0;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+          
+        }
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding-top:16px;
+            padding-bottom: 10px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 36px;
+        }
     </style>
 </head>
 <body scroll="no">
 <div class="container">
+    <div class="icon-bar" >
+        <a  href="/show/profile"><img src="{{ asset('img/free-icon-back-arrow-7344411.png')}}"></a> 
+    </div>
     @foreach($users as $user)
         <form enctype="multipart/form-data" action="/edit/profile{{$user->id}}" method="POST">
             @csrf
