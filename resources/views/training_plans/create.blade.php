@@ -51,7 +51,7 @@
                 font-size: 16px;
             }
             .container{
-                margin-left: 37%;
+                margin-left: 39%;
                 margin-top: 35px;
             }
             img{

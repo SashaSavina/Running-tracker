@@ -61,7 +61,7 @@
                 width: 200px;
                 height: 25px;
                 margin-top: 100px;
-                margin-left: 250px;
+                margin-left: 37%;
                 margin-bottom: 50px;
                 border-radius: 15px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -79,39 +79,9 @@
             left:0px;
             object-fit: cover;
         }
-        .input-file span {
-            position: relative;
-            top: 50px;
-            left: 270px;
-            border: 1px solid #eeeeee;
-            font-size: 14px;
-            vertical-align: middle;
-            text-align: center;
-            border-radius: 15px;
-            background-color: black;
-            color: #eeeeee;
-            height: 25px;
-            padding: 10px 20px;
-            box-sizing: border-box;
-            margin: 0;
-            transition: background-color 0.2s;
-        }
-        .input-file input[type=file] {
-            position: absolute;
-            z-index: -1;
-            opacity: 0;
-            display: block;
-            width: 0;
-            height: 0;
-        }
-        .input-file:hover span {
-            background-color: #A6CAF0;
-        }
         .container{
             border-radius: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            margin: 70px 350px;
+            margin: 70px 35%;
             padding-bottom: 30px;
             
             height: 620px;

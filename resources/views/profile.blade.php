@@ -77,6 +77,7 @@
                 padding-top: 3px;
             }
             .dropbtn {
+                margin-left: 39%;
                 background-color: black;
                 color: #eeeeee;
                 width: 415px;
