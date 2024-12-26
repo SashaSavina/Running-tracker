@@ -275,7 +275,7 @@
         </div>
         <div class="text">Данные учетной записи</div>
         <div class="input">Телефон: {{$user->phone_number}}</div>
-        <div class="input">E-mail: {{$user->email}}</div>
+        <div class="input">e-mail: {{$user->email}}</div>
         <form action="/logout" method="POST">
             @csrf
             <button class="btn" type="submit">Выход</button>

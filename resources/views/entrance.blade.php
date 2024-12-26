@@ -77,6 +77,12 @@
              left: 35px;
              top:10px;
             }    
+            a {
+             color: #eeeeee;
+            }    
+            a:hover {
+                color: #eeeeee;
+            }
         </style>
     </head>
     <body>
