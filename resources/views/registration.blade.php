@@ -16,7 +16,7 @@
             font-family:  sans-serif;
                 font-size: 16px;
                 background-image: url('{{ asset('img/Gradient.jpg') }}');
-                background-size: 1500px 5000px;
+                background-size: 2000px 5000px;
                 background-repeat: no-repeat; /* Не повторяем картинку */
             }    
         .form-slider {
