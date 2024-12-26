@@ -60,8 +60,8 @@
                 color: #eeeeee;
                 width: 200px;
                 height: 25px;
+                margin-left: 35%;
                 margin-top: 100px;
-                margin-left: 37%;
                 margin-bottom: 50px;
                 border-radius: 15px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -83,7 +83,6 @@
             border-radius: 15px;
             margin: 70px 35%;
             padding-bottom: 30px;
-            
             height: 620px;
         }
         .text{

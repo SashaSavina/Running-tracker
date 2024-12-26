@@ -107,7 +107,7 @@
             color:black;
         }
         .button-container { 
-            width: 455px;
+            width: 300px;
             padding-left:20px;
             }
         .input-file button{
@@ -199,7 +199,7 @@
             background-color: #2B6CC4;
         }
         .input-plan3{
-            position: fixed;
+            position: relative;
             text-decoration: none;
             font-size: 14px;
             vertical-align: middle;
@@ -209,12 +209,10 @@
             background-color: black;
             line-height: 22px;
             height: 40px;
-            width: 455px;
+            width: 300px;
             padding: 8px 20px;
             box-sizing: border-box;
             border: none;
-            top: 74%;
-            right:31.1%;
         }
         .input-plan3:hover {
             background-color: #2B6CC4;

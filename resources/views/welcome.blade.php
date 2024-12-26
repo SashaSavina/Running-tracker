@@ -145,6 +145,7 @@
         }
         .mySlides {display: none}
         .slideshow-container {
+            margin: 0 auto;
             max-width: 1000px;
             position: relative;
             background-color:#eeeeee;
@@ -331,14 +332,14 @@
             height: 400px;
             position: absolute;
             top: 3750px;
-            left: 950px;
+            left: 1000px;
         } 
         .img17{
             width: 700px;
             height: 400px;
             position: absolute;
             top: 3520px;
-            left: 1020px;
+            left: 1100px;
         }  
         .img18{
             width: 700px;
@@ -352,7 +353,7 @@
             height: 280px;
             position: absolute;
             top: 3900px;
-            left: 850px;
+            left: 900px;
         }  
         .img20{
             width: 700px;
