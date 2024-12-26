@@ -13,7 +13,7 @@
             font-family:  sans-serif;
             font-size: 16px;
             background-image: url('{{ asset('img/Gradient.jpg') }}');
-            background-size: 2000px 1150px;
+            background-size: 2000px 1300px;
             background-repeat: no-repeat; /* Не повторяем картинку */
             background-position: center; /* Центрируем картинку */
         }
@@ -21,7 +21,7 @@
                 font-size: 25px;
                 width: 400px;
                 height: 25px;
-                margin-bottom: 20px;
+                margin-bottom: 35px;
                 border-radius: 15px;
                 background-color: #eeeeee;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

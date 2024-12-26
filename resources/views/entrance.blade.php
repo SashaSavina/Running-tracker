@@ -60,16 +60,14 @@
                 text-align:center;
             }  
             .container {
+                margin: 0 auto;
                 border-radius: 15px;
-                position: relative;
-                left:610px;
-                top:320px;
-                margin: 70px 100px;
+                margin-top: 200px;
                 padding-bottom: 30px;
                 height: 450px;
                 width:330px ;
                 padding: 50px;
-                transform: translate(-50%, -50%);
+                
                 }
             .regestr{
              color: #eeeeee;

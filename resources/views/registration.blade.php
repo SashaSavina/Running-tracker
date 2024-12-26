@@ -104,9 +104,8 @@
             }
             ul{
                 position: absolute;
-                top: 500px;
-                left: 600px;
-                color:
+                top: 520px;
+                left: 620px;
             }
     </style>
     </head>

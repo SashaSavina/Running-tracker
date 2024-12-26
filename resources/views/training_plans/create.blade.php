@@ -38,7 +38,6 @@
                 font-size: 18px;
             }
             .input {
-                display: block;
                 text-align:center;
                 font-size: 25px;
                 width: 400px;
@@ -52,7 +51,7 @@
                 font-size: 16px;
             }
             .container{
-                margin-left: 527px;
+                margin-left: 37%;
                 margin-top: 35px;
             }
             img{

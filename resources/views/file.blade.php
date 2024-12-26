@@ -199,7 +199,7 @@
             background-color: #2B6CC4;
         }
         .input-plan3{
-            position: absolute;
+            position: fixed;
             text-decoration: none;
             font-size: 14px;
             vertical-align: middle;
@@ -233,6 +233,12 @@
         .btn-new:hover {
             background-position: right center;
         }
+        a {
+             color: #eeeeee;
+            }    
+            a:hover {
+                color: #eeeeee;
+            }
     </style>
 </head>
 <body>

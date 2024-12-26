@@ -42,10 +42,11 @@
         }
         .container {
             display: flex;
+            margin: 0 auto;
         }
         .item {
         flex: 1;
-        margin: 0px;
+        margin: 0 auto;
         text-align: center;
         padding: 20px;
         }
@@ -97,7 +98,7 @@
                 color:black;
             }
             .dropdown {
-                position: relative;
+               
                 display: inline-block;
             }
             .dropdown-content {
@@ -130,8 +131,7 @@
                 color: #eeeeee;
                 width: 100px;
                 height: 25px;
-                margin-top: 15px;
-                margin-bottom: 100px;
+                margin: 0 auto;
                 border-radius: 15px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 border: 0;
